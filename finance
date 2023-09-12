@@ -1,0 +1,26 @@
+# 수치모델 구상화
+# 1) 금리 변동에 따른 금값의 변동 추이
+
+finance_file = open("finance.txt")
+
+finance_contents = finance_file.read()
+print(finance_contents)
+
+import matplotlib.pyplot as plt
+
+with open("finance.txt", "r") as file:
+  lines = file.read().splitlines()
+
+graduation = lines[0].split(",")
+value = lines[1].split(",")
+
+graduation = [float(x) for x in graduation]
+value = [float(y) for y in value]
+
+plt.plot(graduation, value, marker='o', linestyle='-')
+plt.xlabel('Graduation')
+plt.ylabel('Value')
+plt.title('Financial Data Plot')
+
+plt.plot(graduation,value)
+plt.show()
